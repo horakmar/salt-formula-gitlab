@@ -281,6 +281,11 @@ gitlab_rails['omniauth_enabled'] = false
 ###! The duration in seconds to keep backups before they are allowed to be deleted
 # gitlab_rails['backup_keep_time'] = 604800
 
+{% if server.backup_keep_time is defined -%}
+gitlab_rails['backup_keep_time'] = {{ server.backup_keep_time }}
+{% endif -%}
+
+
 # gitlab_rails['backup_upload_connection'] = {
 #   'provider' => 'AWS',
 #   'region' => 'eu-west-1',
